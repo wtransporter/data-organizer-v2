@@ -16,5 +16,13 @@ app.component(
     'candidate',
     require('./components/candidate-resources/Candidate.vue').default
 );
+app.component(
+    'technologies',
+    require('./components/technology-resources/Technologies.vue').default
+);
+app.component(
+    'technology',
+    require('./components/technology-resources/Technology.vue').default
+);
 
 app.mount('#app');

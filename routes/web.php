@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CandidateController;
+use App\Http\Controllers\Admin\TechnologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', [CandidateController::class, 'index'])->name('dashboard');
-    Route::resource('candidates', CandidateController::class); 
+    Route::resource('candidates', CandidateController::class);
+    Route::resource('technologies', TechnologyController::class);
 });
 
 
