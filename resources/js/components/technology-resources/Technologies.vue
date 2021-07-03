@@ -1,5 +1,6 @@
 <template>
     <div class="bg-white p-4 rounded">
+        <new-technology @created="create"></new-technology>
         <table class="table-auto">
             <thead>
                 <tr>
@@ -16,11 +17,11 @@
 </template>
 
 <script>
-
+import NewTechnology from './NewTechnology.vue';
 import Technology from './Technology.vue';
 
 export default {
-    components: { Technology },
+    components: { Technology, NewTechnology },
 
     data() {
         return {
@@ -43,6 +44,10 @@ export default {
 
         remove(index) {
             this.technologies.splice(index, 1);
+        },
+
+        create(data) {
+            this.technologies.push(data.data);
         }
     }
 }

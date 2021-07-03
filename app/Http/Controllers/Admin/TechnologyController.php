@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Technology;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
 {
@@ -35,6 +36,25 @@ class TechnologyController extends Controller
             return response(['status' => 'Technology successfully deleted.']);
         }
 
+        return back();
+    }
+
+    /**
+     * Store given resource to database
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $technology = Technology::create([
+            'title' => $request->get('title')
+        ]);
+
+        if ($request->wantsJson()) {
+            return response(['data' => $technology]);
+        }
+        
         return back();
     }
 }
