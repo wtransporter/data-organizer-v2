@@ -12,5 +12,9 @@ app.component(
     require('./components/candidate-resources/Candidates.vue').default
 );
 app.component('paginator', require('./components/ui/Paginator.vue').default);
+app.component(
+    'candidate',
+    require('./components/candidate-resources/Candidate.vue').default
+);
 
 app.mount('#app');
