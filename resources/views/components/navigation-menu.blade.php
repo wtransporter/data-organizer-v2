@@ -4,8 +4,8 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Navigation Links -->
-                <div class="space-x-8 sm:-my-px sm:ml-10 flex">
-                    <x-nav-link href="{{ route('candidates.index') }}" :active="request()->routeIs('candidates.index')">
+                <div class="space-x-8 sm:-my-px flex">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>

@@ -14,8 +14,10 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        return view('dashboard', [
-            'candidates' => Candidate::paginate(12)
-        ]);
+        if (request()->wantsJson()) {
+            return Candidate::paginate(5);
+        }
+
+        return view('dashboard');
     }
 }

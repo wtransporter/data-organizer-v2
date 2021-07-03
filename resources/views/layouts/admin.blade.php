@@ -19,11 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('admin/css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="font-sans antialiased">
     <div id="app" class="min-h-screen bg-gray-100">
         <x-navigation-menu />
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>
