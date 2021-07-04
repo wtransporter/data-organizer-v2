@@ -36,5 +36,9 @@ app.component(
     'projects',
     require('./components/project-resources/Projects.vue').default
 );
+app.component(
+    'project',
+    require('./components/project-resources/Project.vue').default
+);
 
 app.mount('#app');
