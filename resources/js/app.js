@@ -1,10 +1,12 @@
 import { createApp } from 'vue';
 require('./bootstrap');
 import BaseButton from './components/ui/BaseButton.vue';
+import ModalDialog from './components/ui/ModalDialog.vue';
 
 let app = createApp({});
 
 app.component('base-button', BaseButton);
+app.component('modal-dialog', ModalDialog);
 app.component(
     'example-component',
     require('./components/ExampleComponent.vue').default

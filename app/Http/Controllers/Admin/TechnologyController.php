@@ -15,10 +15,6 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        if (request()->wantsJson()) {
-            return Technology::all();
-        }
-
         return view('admin.technologies.index');
     }
 
@@ -55,6 +51,26 @@ class TechnologyController extends Controller
             return response(['data' => $technology]);
         }
         
+        return back();
+    }
+
+    /**
+     * Update given resource
+     *
+     * @param Technology $technology
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Technology $technology, Request $request)
+    {
+        $technology->update([
+            'title' => $request->get('title')
+        ]);
+
+        if ($request->wantsJson()) {
+            return response(['success' => 'Technology updated']);
+        }
+
         return back();
     }
 }

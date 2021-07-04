@@ -35,7 +35,7 @@ export default {
 
     methods: {
         fetch() {
-            axios.get('technologies').then(this.refresh);
+            axios.get('v1/technologies').then(this.refresh);
         },
 
         refresh({data}) {
