@@ -97,7 +97,7 @@ class CandidateController extends Controller
 
         $newCandidate->assignTechnology($request->get('technologies'));
 
-        return redirect()->route('candidates.create')->with('message', 'Candidate successfully added. You can add experience');
+        return redirect()->route('candidates.projects.create', $newCandidate)->with('message', 'Candidate successfully added. You can add experience');
     }
 
     /**

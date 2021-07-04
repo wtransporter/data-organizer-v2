@@ -4,7 +4,7 @@ use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\TechnologyController;
-use App\Http\Controllers\CandidateProjectController;
+use App\Http\Controllers\Admin\CandidateProjectController;
 
 /*
 |--------------------------------------------------------------------------

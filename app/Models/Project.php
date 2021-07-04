@@ -2,22 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\HasTechnology;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTechnology;
 
     protected $guarded = [];
 
     public function candidate()
     {
         return $this->belongsTo(Candidate::class);
-    }
-
-    public function technologies()
-    {
-        return $this->belongsToMany(Technology::class)->withTimestamps();
     }
 }
