@@ -28,4 +28,9 @@ class Candidate extends Model
 
         return $this->technologies()->sync($technologies);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

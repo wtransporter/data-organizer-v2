@@ -24,6 +24,20 @@ class CandidateController extends Controller
     }
 
     /**
+     * Show specified resource
+     *
+     * @param Candidate $candidate
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Candidate $candidate)
+    {
+        return view('admin.candidates.show', [
+            'candidate' => $candidate->load(['technologies', 'projects']),
+            'allTechnologies' => Technology::all()
+        ]);
+    }
+
+    /**
      * Display form for editing given resource
      *
      * @param Candidate $candidate

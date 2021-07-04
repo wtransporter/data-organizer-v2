@@ -4,6 +4,7 @@ use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\CandidateProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', [CandidateController::class, 'index'])->name('dashboard');
     Route::resource('candidates', CandidateController::class);
     Route::resource('technologies', TechnologyController::class);
+    Route::resource('candidates.projects', CandidateProjectController::class);
     Route::get('v1/technologies', function () {
         return Technology::all();
     });

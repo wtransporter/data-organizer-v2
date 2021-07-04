@@ -2,7 +2,7 @@
     <div class="p-4 sm:px-8 bg-white border-b border-gray-200 rounded">
         <div class="flex justify-between items-center">
             <h5 class="text-xl">
-                <a href="" class="text-blue-800 hover:underline" v-text="name"></a>
+                <a :href="'candidates/'+candidate.id" class="text-blue-800 hover:underline" v-text="name"></a>
             </h5>
             <div class="flex justify-between items-center space-x-2">
                 <a :href="'candidates/'+candidate.id+'/edit'" class="text-blue-700 hover:text-blue-500 w-4">
