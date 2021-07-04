@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Candidate;
+use App\Models\Technology;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCandidateRequest;
 
 class CandidateController extends Controller
 {
@@ -15,10 +17,73 @@ class CandidateController extends Controller
     public function index()
     {
         if (request()->wantsJson()) {
-            return Candidate::paginate(12);
+            return Candidate::latest()->paginate(12);
         }
 
         return view('dashboard');
+    }
+
+    /**
+     * Display form for editing given resource
+     *
+     * @param Candidate $candidate
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Candidate $candidate)
+    {
+        return view('admin.candidates.edit', [
+            'candidate' => $candidate,
+            'allTechnologies' => Technology::all()
+        ]);
+    }
+
+    /**
+     * Display form for creating new resource
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.candidates.create', [
+            'allTechnologies' => Technology::all()
+        ]);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Candidate $candidate
+     * @param StoreCandidateRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Candidate $candidate, StoreCandidateRequest $request)
+    {
+        $attributes = $request->validated();
+        unset($attributes['technologies']);
+
+        $candidate->update($attributes);
+        $candidate->assignTechnology($request->get('technologies'));
+
+        return redirect()->route('candidates.edit', $candidate)->with('message', 'Candidate updated');
+    }
+
+    /**
+     * Store a newly created resource
+     * 
+     * @param Candidate $candidate
+     * @param StoreCandidateRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Candidate $candidate, StoreCandidateRequest $request)
+    {
+        $attributes = $request->validated();
+        unset($attributes['technologies']);
+
+        $newCandidate = $candidate->create($attributes);
+
+        $newCandidate->assignTechnology($request->get('technologies'));
+
+        return redirect()->route('candidates.create')->with('message', 'Candidate successfully added. You can add experience');
     }
 
     /**
