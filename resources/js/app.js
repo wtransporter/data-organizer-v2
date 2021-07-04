@@ -32,5 +32,9 @@ app.component(
     'new-technology',
     require('./components/technology-resources/NewTechnology.vue').default
 );
+app.component(
+    'projects',
+    require('./components/project-resources/Projects.vue').default
+);
 
 app.mount('#app');
