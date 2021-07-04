@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Project;
 use App\Models\Candidate;
 use App\Models\Technology;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCandidateProjectRequest;
 
@@ -41,5 +41,20 @@ class CandidateProjectController extends Controller
 
         return redirect()->route('candidates.projects.create', $candidate)
             ->with('message', 'Project ' . $project->title . ' successfully added');
+    }
+
+    /**
+     * Delete given resource from database
+     *
+     * @param Candidate $candidate
+     * @param Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Candidate $candidate, Project $project)
+    {
+        $project->technologies()->detach();
+        $project->delete();
+
+        return redirect()->route('candidates.show', $candidate)->with('message', 'Project deleted');
     }
 }
