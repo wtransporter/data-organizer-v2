@@ -32,7 +32,7 @@ class CandidateController extends Controller
     public function show(Candidate $candidate)
     {
         return view('admin.candidates.show', [
-            'candidate' => $candidate->load(['technologies', 'projects', 'projects.technologies']),
+            'candidate' => $candidate->load(['technologies', 'projects', 'projects.technologies', 'tags']),
             'allTechnologies' => Technology::all()
         ]);
     }

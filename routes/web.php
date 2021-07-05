@@ -2,6 +2,7 @@
 
 use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\CandidateProjectController;
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('v1/technologies', function () {
         return Technology::all();
     });
+    Route::resource('candidates.tags', TagController::class);
 });
 
 

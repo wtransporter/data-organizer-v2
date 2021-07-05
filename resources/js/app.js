@@ -40,5 +40,10 @@ app.component(
     'project',
     require('./components/project-resources/Project.vue').default
 );
+app.component('tags', require('./components/tag-resources/Tags.vue').default);
+app.component(
+    'single-tag',
+    require('./components/tag-resources/SingleTag.vue').default
+);
 
 app.mount('#app');
