@@ -21,6 +21,12 @@
             <address v-text="address"></address>
             <span v-text="phone"></span>
         </div>
+        <div class="mt-2 text-gray-500">
+            <small v-for="(technology) in candidate.technologies" v-bind:key="technology.id"
+                class="px-2 bg-blue-500 text-white rounded-full mr-2">
+                {{ technology.title }}
+            </small>
+        </div>
     </div>
 </template>
 

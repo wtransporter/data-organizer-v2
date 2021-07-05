@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Candidate;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\CandidateController;
+use App\Http\Controllers\CandidateFilterController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\CandidateAvatarController;
 use App\Http\Controllers\Admin\CandidateProjectController;
@@ -37,6 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('tags', TagController::class);
     Route::post('candidates/{candidate}/avatar', [CandidateAvatarController::class, 'store'])->name('avatar');
     Route::post('candidates/{candidate}/document', [CandidateDocumentController::class, 'store'])->name('document');
+    Route::post('candidates/filter', [CandidateFilterController::class, 'index'])->name('filter');
 });
 
 

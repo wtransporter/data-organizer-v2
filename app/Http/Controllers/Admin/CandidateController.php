@@ -17,7 +17,7 @@ class CandidateController extends Controller
     public function index()
     {
         if (request()->wantsJson()) {
-            return Candidate::latest()->paginate(12);
+            return Candidate::with('technologies')->latest()->paginate(12);
         }
 
         return view('dashboard');
