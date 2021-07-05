@@ -71,6 +71,15 @@
                                         rows="4" id="note" name="note" placeholder="Note">{{ $candidate->note }}</textarea>
                                     <x-input-error for="note" class="mt-1 italic" />
                                 </div>
+                                <div class="mb-2">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="note">
+                                        {{ __('Custom tags') }}
+                                    </label>
+                                    <Tags :candidatetags="{{ $candidate->tags }}"
+                                            :creating="true" 
+                                            :candidate_id="{{ $candidate->id }}">
+                                    </Tags>
+                                </div>
                             </div>
                         </div>
                         <x-assign-technology :allTechnologies="$allTechnologies" :model="$candidate" />

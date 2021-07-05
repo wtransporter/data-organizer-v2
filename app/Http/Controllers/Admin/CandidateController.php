@@ -46,7 +46,7 @@ class CandidateController extends Controller
     public function edit(Candidate $candidate)
     {
         return view('admin.candidates.edit', [
-            'candidate' => $candidate,
+            'candidate' => $candidate->load('tags'),
             'allTechnologies' => Technology::all()
         ]);
     }

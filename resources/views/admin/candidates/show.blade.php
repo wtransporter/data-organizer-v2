@@ -61,11 +61,7 @@
                         {{ $candidate->Note ?: '----' }}
                     </p>
                 </div>
-                <div class="mt-4">
-                    <h5 class="text-gray-700 text-sm font-bold border-b py-1 mb-2">{{ __('Tags') }}</h5>
-                    <Tags :candidatetags="{{ $candidate->tags }}"></Tags>
-                </div>
-            </div>
+             </div>
             <div class="flex-1 mb-4 md:mb-0">
                 <h5 class="text-gray-700 text-sm font-bold">{{ __('Technologies') }}</h5>
                 <ul>
@@ -75,6 +71,10 @@
                         </li>
                     @endforeach
                 </ul>
+               <div class="mt-4">
+                    <h5 class="text-gray-700 text-sm font-bold border-b py-1 mb-2">{{ __('Tags') }}</h5>
+                    <Tags :candidatetags="{{ $candidate->tags }}" :candidate_id="{{ $candidate->id }}"></Tags>
+                </div>
             </div>
         </div>
             <h5 class="text-xl italic border-t border-b py-2 mb-2">{{ __('Experience') }}</h5>
