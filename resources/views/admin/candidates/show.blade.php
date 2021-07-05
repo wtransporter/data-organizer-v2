@@ -80,6 +80,8 @@
                 </div>
             </div>
         </div>
+            <h5 class="text-xl italic border-t border-b py-2 mb-2">{{ __('Attachment') }}</h5>
+            <document-form :candidate="{{ $candidate }}"></document-form>           
             <h5 class="text-xl italic border-t border-b py-2 mb-2">{{ __('Experience') }}</h5>
         <div>
             <ul>

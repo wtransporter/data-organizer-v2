@@ -46,5 +46,9 @@ app.component(
     require('./components/tag-resources/NewTag.vue').default
 );
 app.component('image-form', require('./components/ImageForm.vue').default);
+app.component(
+    'document-form',
+    require('./components/DocumentForm.vue').default
+);
 
 app.mount('#app');
