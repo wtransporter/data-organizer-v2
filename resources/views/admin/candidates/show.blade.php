@@ -13,6 +13,9 @@
 
         <div class="md:flex md:space-x-4">
             <div class="flex-1">
+                <image-form :candidate="{{ $candidate }}"></image-form>
+            </div>
+            <div class="flex-1">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2">
                         {{ __('Full name') }}

@@ -30,4 +30,9 @@ class Candidate extends Model
     {
         return $this->tags()->create(['title' => $title]);
     }
+
+    public function getAvatarAttribute($avatar)
+    {
+        return $avatar ? asset('storage/'. $avatar) : '/img/no-image.png';
+    }
 }

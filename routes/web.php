@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CandidateAvatarController;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TagController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
         return Technology::all();
     });
     Route::resource('tags', TagController::class);
+    Route::post('candidates/{candidate}/avatar', [CandidateAvatarController::class, 'store'])->name('avatar');
 });
 
 

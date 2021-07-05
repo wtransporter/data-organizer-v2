@@ -8,10 +8,6 @@ let app = createApp({});
 app.component('base-button', BaseButton);
 app.component('modal-dialog', ModalDialog);
 app.component(
-    'example-component',
-    require('./components/ExampleComponent.vue').default
-);
-app.component(
     'candidates',
     require('./components/candidate-resources/Candidates.vue').default
 );
@@ -49,5 +45,6 @@ app.component(
     'new-tag',
     require('./components/tag-resources/NewTag.vue').default
 );
+app.component('image-form', require('./components/ImageForm.vue').default);
 
 app.mount('#app');
