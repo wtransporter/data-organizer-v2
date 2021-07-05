@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('v1/technologies', function () {
         return Technology::all();
     });
-    Route::resource('candidates.tags', TagController::class);
+    Route::resource('tags', TagController::class);
 });
 
 

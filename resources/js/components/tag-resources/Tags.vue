@@ -2,6 +2,7 @@
     <div v-if="tags.length > 0" class="flex flex-wrap">
         <single-tag v-for="(tag, index) in tags" 
             :key="tag.id"
+            :id="tag.id"
             :title="tag.title"
             @deleted="remove(index)">
         </single-tag>
