@@ -52,6 +52,7 @@
 
                 axios.post(`/candidates/${this.candidate.id}/avatar`, data).then(() => {
                     this.message = 'Image uploaded';
+                    flash(this.message);
                 });
             }
         }

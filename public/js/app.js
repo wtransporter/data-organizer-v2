@@ -17935,6 +17935,8 @@ __webpack_require__.r(__webpack_exports__);
       this.persist(file);
     },
     persist: function persist(file) {
+      var _this2 = this;
+
       var formData = new FormData();
       formData.append('document', file);
       var then = this;
@@ -17944,6 +17946,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         then.current = response.data.document;
+        then.message = "Document uploaded";
+        flash(_this2.message);
       });
     }
   }
@@ -17992,6 +17996,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append('avatar', file);
       axios.post("/candidates/".concat(this.candidate.id, "/avatar"), data).then(function () {
         _this2.message = 'Image uploaded';
+        flash(_this2.message);
       });
     }
   }
@@ -18188,7 +18193,9 @@ __webpack_require__.r(__webpack_exports__);
         candidate_id: this.candidate_id,
         title: this.title
       };
-      axios.post('/tags', newTag).then(this.refresh);
+      axios.post('/tags', newTag).then(this.refresh)["catch"](function (error) {
+        flash(error.response.data.errors.title[0]);
+      });
       this.title = '';
     },
     refresh: function refresh(_ref) {

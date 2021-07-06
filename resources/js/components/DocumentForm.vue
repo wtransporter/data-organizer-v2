@@ -69,6 +69,8 @@
                     })
                 .then((response) => {
                     then.current = response.data.document;
+                    then.message = "Document uploaded";
+                    flash(this.message);
                 });
             },
         }

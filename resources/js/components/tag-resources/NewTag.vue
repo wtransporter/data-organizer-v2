@@ -30,7 +30,11 @@ export default {
                 title: this.title 
             };
 
-            axios.post('/tags', newTag).then(this.refresh);
+            axios.post('/tags', newTag)
+            .then(this.refresh)
+            .catch(error => {
+                flash(error.response.data.errors.title[0]);
+            });
 
             this.title = '';
         },
