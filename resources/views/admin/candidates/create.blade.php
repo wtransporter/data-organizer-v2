@@ -19,6 +19,7 @@
                                 </label>
                                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                     id="fullname" name="name" type="text" placeholder="Full name" value="{{ old('name') }}">
+                                <x-input-error for="name"/>
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
@@ -33,6 +34,7 @@
                                 </label>
                                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                     id="birth_date" name="birth_date" type="date" placeholder="Date of birth"  value="{{ old('birth_date') }}">
+                                    <x-input-error for="birth_date"/>
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
@@ -60,6 +62,7 @@
                         </div>
                     </div>
                     <x-assign-technology :allTechnologies="$allTechnologies" />
+                    <x-input-error for="technologies" class="mb-2"/>
                     <div class="flex items-center justify-between">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
                             type="submit">
