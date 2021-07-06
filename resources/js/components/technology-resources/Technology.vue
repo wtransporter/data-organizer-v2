@@ -58,9 +58,12 @@ export default {
 
     methods: {
         destroy() {
-            axios.delete('/technologies/' + this.technology.id);
-
-            this.$emit('deleted');
+            var that = this;
+            axios.delete('/technologies/' + this.technology.id).then(function (response) {
+                console.log(response.data);
+                that.$emit('deleted');
+                flash(response.data.message);
+            });
         },
 
         canDelete() {
@@ -73,15 +76,18 @@ export default {
         },
 
         confirmEditing() {
+            var that = this;
+
             axios.post('/technologies/' + this.technology.id, {
                 title: this.updatedTitle,
                 _method: 'patch'
-            }).then(this.setData);
-        },
-
-        setData() {
-            this.title = this.updatedTitle;
-            this.confirmEdit = false;
+            })
+            .then(function (response) {
+                that.title = that.updatedTitle;
+                that.confirmEdit = false;
+                
+                flash(response.data.message);
+            });
         },
 
         confirmAction() {

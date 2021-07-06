@@ -50,5 +50,6 @@ app.component(
     'document-form',
     require('./components/DocumentForm.vue').default
 );
+app.component('flash', require('./components/ui/Flash.vue').default);
 
 app.mount('#app');

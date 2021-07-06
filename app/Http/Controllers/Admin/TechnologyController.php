@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Technology;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\TechnologyFormRequest;
 
 class TechnologyController extends Controller
 {
@@ -28,27 +29,28 @@ class TechnologyController extends Controller
     {
         $technology->delete();
 
-        if (request()->expectsJson()) {
-            return response(['status' => 'Technology successfully deleted.']);
-        }
-
-        return back();
+        return response()->json([
+            'message' => 'Technology successfully deleted.'
+        ]);
     }
 
     /**
      * Store given resource to database
      *
-     * @param Request $request
+     * @param TechnologyFormRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TechnologyFormRequest $request)
     {
         $technology = Technology::create([
             'title' => $request->get('title')
         ]);
 
         if ($request->wantsJson()) {
-            return response(['data' => $technology]);
+            return response([
+                'message' => 'Technology created',
+                'data' => $technology
+            ]);
         }
         
         return back();
@@ -68,7 +70,7 @@ class TechnologyController extends Controller
         ]);
 
         if ($request->wantsJson()) {
-            return response(['success' => 'Technology updated']);
+            return response()->json(['message' => 'Technology updated']);
         }
 
         return back();

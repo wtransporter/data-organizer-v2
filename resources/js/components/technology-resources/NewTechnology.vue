@@ -25,13 +25,18 @@ export default {
 
     methods: {
         store() {
-            axios.post('/technologies', { title: this.title }).then(this.refresh);
+            axios.post('/technologies', { title: this.title })
+            .then(this.refresh)
+            .catch(error => {
+                flash(error.response.data.errors.title[0]);
+            });
 
             this.title = '';
         },
 
         refresh({data}) {
             this.$emit('created', data);
+            flash(data.message);
         }
     }
 }

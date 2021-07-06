@@ -39,3 +39,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+import mitt from 'mitt';
+
+window.events = mitt();
+
+window.flash = function (message) {
+    window.events.emit('flash', { message });
+};

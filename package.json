@@ -31,6 +31,7 @@
         "trailingComma": "none"
     },
     "dependencies": {
+        "mitt": "^3.0.0",
         "tailwindcss": "^2.2.4"
     }
 }
