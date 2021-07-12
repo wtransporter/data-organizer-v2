@@ -5,10 +5,11 @@
     <base-button @click="filter" class="mr-2">Search</base-button>
     <base-button @click="fetch">Reset</base-button>
     </form>
-    <div class="overflow-hidden grid md:grid-cols-3 lg:grid-cols-4 md:gap-2">
+    <div v-if="candidates.length > 0" class="overflow-hidden grid md:grid-cols-3 lg:grid-cols-4 md:gap-2">
         <candidate v-bind:key="candidate.id" v-for="(candidate, index) in candidates" 
             :candidate="candidate" @deleted="remove(index)"></candidate>
     </div>
+    <small v-else class="italic">No results found</small>
     <div class="mt-4">
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </div>
@@ -39,6 +40,7 @@ export default {
     methods: {
         fetch(page) {
             axios.get(this.url(page)).then(this.refresh);
+            this.search = '';
         },
 
         url(page) {
@@ -54,7 +56,6 @@ export default {
         refresh({data}) {
             this.dataSet = data;
             this.candidates = data.data;
-            this.search = '';
         },
 
         remove(index) {

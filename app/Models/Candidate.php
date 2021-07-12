@@ -35,4 +35,19 @@ class Candidate extends Model
     {
         return $avatar ? asset('storage/'. $avatar) : '/img/no-image.png';
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        return $query->with('technologies')
+            ->when($filters['search'], function($query, $search) {
+                return $query->where('name', 'LIKE', '%' . $search . '%')
+                    ->orWhere('address', 'like', '%' . $search . '%')
+                    ->orWhere('college', 'like', '%' . $search . '%')
+                    ->orWhereHas('technologies', function($q) use ($search){
+                        $q->where('title', 'like', '%' . $search . '%');
+                    })->orWhereHas('tags', function($q) use ($search) {
+                        $q->where('title', 'like', '%' . $search . '%');
+                    });
+            });
+    }
 }
