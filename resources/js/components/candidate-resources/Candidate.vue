@@ -32,7 +32,9 @@
 
 <script>
 export default {
-    props: ['candidate'],
+    props: {
+        candidate: Object
+    },
 
     data() {
         return {

@@ -19,7 +19,11 @@
 <script>
 export default {
 
-    props: ['candidatetags', 'creating', 'candidate_id'],
+    props: {
+        candidatetags: Object,
+        creating: Boolean,
+        candidate_id: Number
+    },
 
     data() {
         return {

@@ -41,7 +41,13 @@
 <script>
 export default {
 
-    props: ['id', 'title', 'description', 'technologies', 'candidate_id'],
+    props: {
+        id: Number,
+        title: String,
+        description: String,
+        technologies: Object,
+        candidate_id: Number
+    },
     emits: ['deleted'],
 
     data() {

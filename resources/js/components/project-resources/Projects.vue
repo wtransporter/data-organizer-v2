@@ -22,7 +22,10 @@ import Project from './Project.vue';
 export default {
     components: { Project },
 
-    props: ['allprojects', 'candidate'],
+    props: {
+        allprojects: Object,
+        candidate: Object
+    },
 
     data() {
         return {

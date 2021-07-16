@@ -18016,7 +18016,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['candidate'],
+  props: {
+    candidate: Object
+  },
   data: function data() {
     return {
       name: this.candidate.name,
@@ -18110,7 +18112,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['id', 'title', 'description', 'technologies', 'candidate_id'],
+  props: {
+    id: Number,
+    title: String,
+    description: String,
+    technologies: Object,
+    candidate_id: Number
+  },
   emits: ['deleted'],
   data: function data() {
     return {
@@ -18154,7 +18162,10 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Project: _Project_vue__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  props: ['allprojects', 'candidate'],
+  props: {
+    allprojects: Object,
+    candidate: Object
+  },
   data: function data() {
     return {
       projects: this.allprojects
@@ -18181,7 +18192,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['candidate_id'],
+  props: {
+    candidate_id: Number
+  },
   data: function data() {
     return {
       title: ''
@@ -18219,7 +18232,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['title', 'id'],
+  props: {
+    title: String,
+    id: Number
+  },
   emits: ['deleted'],
   methods: {
     destroy: function destroy() {
@@ -18243,7 +18259,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['candidatetags', 'creating', 'candidate_id'],
+  props: {
+    candidatetags: Object,
+    creating: Boolean,
+    candidate_id: Number
+  },
   data: function data() {
     return {
       tags: this.candidatetags,

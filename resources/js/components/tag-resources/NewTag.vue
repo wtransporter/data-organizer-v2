@@ -15,7 +15,9 @@
 <script>
 export default {
 
-    props: ['candidate_id'],
+    props: {
+        candidate_id: Number
+    },
 
     data() {
         return {

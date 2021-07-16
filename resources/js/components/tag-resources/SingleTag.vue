@@ -8,7 +8,10 @@
 <script>
 export default {
 
-    props: ['title', 'id'],
+    props: {
+        title: String,
+        id: Number
+    },
 
     emits: ['deleted'],
 
